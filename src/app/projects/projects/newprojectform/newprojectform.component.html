@@ -1,1 +1,18 @@
-<p>newprojectform works!</p>
+<form>
+
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" name="id" class="form-control" [(ngModel)]="project.id" placeholder="ID">
+  </div>
+
+  <div class="form-group">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="project.name" placeholder="Nombre">
+  </div>
+
+  <div class="text-right">
+    <button type="button" class="btn btn-secondary mr-3" routerLink="/projects">Volver</button>
+    <input type="button" class="btn btn-primary" (click)="saveProject()" value="Guardar">
+  </div>
+
+</form>

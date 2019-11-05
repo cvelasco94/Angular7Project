@@ -10,28 +10,19 @@ import { ProjectsService } from '../projects/projects.service';
 
 export class NewComponent implements OnInit {
 
-  public project: Project;
   public projects: Project[];
-  public numProjects: number;
 
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit() {
 
     this.projects = this.projectsService.getProjects;
-    this.numProjects = this.projectsService.getNumProjects;
-    this.project = { id: this.projectsService.getNumProjects, name: '' };
 
   }
 
-  public createProject() {
+  public createProject(project: Project) {
 
-    this.projectsService.createProject(this.project);
-
-    this.projects = this.projectsService.getProjects;
-    this.numProjects = this.projectsService.getNumProjects;
-    this.project = { id: this.projectsService.getNumProjects, name: '' };
-
+    this.projectsService.createProject(project);
 
   }
 
