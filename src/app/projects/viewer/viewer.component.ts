@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../models/project.model';
 import { environment } from '../../../environments/environment';
@@ -19,11 +19,12 @@ export class ViewerComponent implements OnInit {
     this.projectID = parseInt(activateRoute.snapshot.params.id, 10);
   }
 
-  public ngOnInit() { this.getProjectDetails(); }
-
-  public getProjectDetails(){
-    this.project = this.projectsService.getProjectData(this.projectID);
+  public ngOnInit() {
+    this.getProjectDetails();
   }
 
+  public getProjectDetails() {
+    this.project = this.projectsService.getProjectData(this.projectID);
+  }
 
 }
