@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build:prod": "ng build --prod",
-    "build:pub": "ng build --prod --output-path docs --base-href https://github.com/cvelasco94/Angular7Project/",
+    "build:pub": "ng build --prod --output-path docs --base-href https://cvelasco94.github.io/Angular7Project/",
     "e2e": "ng e2e",
     "lint": "ng lint",
     "ng": "ng",
