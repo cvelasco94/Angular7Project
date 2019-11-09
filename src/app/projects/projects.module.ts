@@ -12,7 +12,7 @@ import { FilterprojectsformComponent } from './projects/filterprojectsform/filte
 import { ProjectslistComponent } from './projects/projectslist/projectslist.component';
 import { ViewerprojectformComponent } from './viewer/viewerprojectform/viewerprojectform.component';
 import { NewprojectformComponent } from './new/newprojectform/newprojectform.component';
-import { ProjectsService } from './projects/projects.service';
+import { ProjectsService } from './projects.service';
 
 @NgModule({
   declarations: [
