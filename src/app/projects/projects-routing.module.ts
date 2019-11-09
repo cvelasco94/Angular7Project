@@ -8,7 +8,7 @@ import { ViewerComponent } from './viewer/viewer.component';
 const routes: Routes = [
   {
     path: '',
-    component: ProjectsComponent,
+    component: ProjectsComponent
   },
   {
     path: 'view/:id',
