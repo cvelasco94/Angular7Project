@@ -7,13 +7,12 @@ import { ViewerComponent } from './viewer/viewer.component';
 import { NewComponent } from './new/new.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './projects/dashboard/dashboard.component';
+import { DashboardComponent } from '../home/dashboard/dashboard.component';
 import { FilterprojectsformComponent } from './projects/filterprojectsform/filterprojectsform.component';
 import { ProjectslistComponent } from './projects/projectslist/projectslist.component';
-import { ViewerprojectformComponent } from './projects/viewerprojectform/viewerprojectform.component';
-import { NewprojectformComponent } from './projects/newprojectform/newprojectform.component';
+import { ViewerprojectformComponent } from './viewer/viewerprojectform/viewerprojectform.component';
+import { NewprojectformComponent } from './new/newprojectform/newprojectform.component';
 import { ProjectsService } from './projects/projects.service';
-
 
 @NgModule({
   declarations: [
