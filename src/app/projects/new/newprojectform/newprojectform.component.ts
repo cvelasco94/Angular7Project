@@ -19,7 +19,7 @@ export class NewprojectformComponent implements OnInit {
   ngOnInit() {
 
     this.project = {
-      id: this.projects.length,
+      id: 1,
       name: ''
     };
 
@@ -28,11 +28,6 @@ export class NewprojectformComponent implements OnInit {
   public saveProject() {
 
     this.projectEmitter.emit(this.project);
-
-    this.project = {
-      id: this.projects.length,
-      name: ''
-    };
 
   }
 

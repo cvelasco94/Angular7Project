@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { Project } from './../models/project.model';
 import { ProjectsService } from '../projects.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -9,19 +9,17 @@ import { ProjectsService } from '../projects.service';
   styles: []
 })
 export class ProjectsComponent implements OnInit {
+  public projects$: Observable<Project[]> = null;
 
-  public projects: Project[];
-  public numProjects: number;
-
-  constructor(private projectsService: ProjectsService) { }
+  constructor(private projectsService: ProjectsService) {}
 
   ngOnInit() {
-
-    this.projects = environment.projects;
-    this.numProjects = this.projects.length;
-
+    this.projects$ = this.projectsService.projects$;
   }
 
+  public deleteProject() {
+    this.projectsService.deleteProjects();
+  }
 
 }
 

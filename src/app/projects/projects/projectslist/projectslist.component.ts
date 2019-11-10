@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-projectslist',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ProjectslistComponent implements OnInit {
+  @Input() public projects: Project[];
+  @Output() public projectEmitter = new EventEmitter<Project>();
 
-  constructor() { }
+  public numProjects: number;
+
+  constructor() {}
 
   ngOnInit() {
+    if (this.projects === null) {
+      this.projects = [];
+    }
   }
 
+  public deleteProject() {
+    this.projectEmitter.emit();
+  }
 }

@@ -1,15 +1,2 @@
-<p>El número de proyectos actual es <span class="bg-info">{{ numProjects }}</span></p>
-<h3>Proyectos actuales</h3>
-<table class="table table-striped">
-  <tr *ngFor="let project of projects">
-    <td>{{project.id}}</td>
-    <td>{{project.name}}</td>
-    <td><a routerLink="view/{{project.id}}" >Ver</a> </td>
-  </tr>
-</table>
-<div class="text-right">
-    <div class="btn btn-primary" routerLink="new">Nuevo proyecto</div>
-</div>
-
+<app-projectslist [projects]="projects$ | async" (projectEmitter)="deleteProject()"></app-projectslist>
 <!--<router-outlet></router-outlet>-->
-

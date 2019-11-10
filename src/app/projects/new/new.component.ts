@@ -22,7 +22,7 @@ export class NewComponent implements OnInit {
 
   public createProject(project: Project) {
 
-    this.projectsService.createProject(project);
+    this.projectsService.createPublicProjects(project);
 
   }
 

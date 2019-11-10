@@ -13,6 +13,7 @@ import { ProjectslistComponent } from './projects/projectslist/projectslist.comp
 import { ViewerprojectformComponent } from './viewer/viewerprojectform/viewerprojectform.component';
 import { NewprojectformComponent } from './new/newprojectform/newprojectform.component';
 import { ProjectsService } from './projects.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,13 @@ import { ProjectsService } from './projects.service';
     ViewerprojectformComponent,
     NewprojectformComponent
   ],
-  imports: [CommonModule, RouterModule, ProjectsRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ProjectsRoutingModule,
+    FormsModule,
+    HttpClientModule
+  ],
   providers: [ProjectsService]
 })
 export class ProjectsModule {}

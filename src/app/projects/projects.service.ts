@@ -1,26 +1,63 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Project } from './models/project.model';
+import { Observable } from 'rxjs';
+import { map, share, filter, find } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
+  public getProjects: any;
 
-  constructor(private router: Router) {}
+  public getNumProjects: 1;
 
-  public getProjects = environment.projects;
+  public projects$: Observable<Project[]> = null;
 
-  public getNumProjects = environment.projects.length;
+  public urlapiprojects = 'https://api-base.herokuapp.com/api/pub/projects';
 
-  public getProjectData = projectID =>
-    this.getProjects[
-      this.getProjects.map(element => element.id).indexOf(projectID)
-    ];
+  public urlapicountprojects = 'https://api-base.herokuapp.com/api/pub/projects/count';
+
+  constructor(private router: Router, private httpClient: HttpClient) {
+    this.projects$ = this.getPublicProjects();
+  }
+
+  public getProjectData(projectID) {
+    return this.projects$.pipe(map(project => project.find(project => project.id === projectID)));
+  }
 
   public createProject(project) {
     environment.projects.push(project);
-    this.getNumProjects = this.getProjects.length;
     this.router.navigateByUrl('projects');
+  }
+
+  public getPublicProjects() {
+    return this.httpClient
+      .get<Project[]>(this.urlapiprojects)
+      .pipe(map(this.transformData));
+  }
+
+  public createPublicProjects(project) {
+    this.httpClient.post(this.urlapiprojects, project).subscribe(response => {
+      this.router.navigateByUrl('projects');
+    });
+  }
+
+  public deleteProjects() {
+    return this.httpClient.delete(this.urlapiprojects).subscribe(() => {
+      location.reload();
+    });
+  }
+
+  public transformData(currentProjects) {
+    if (currentProjects !== null) {
+      return Object.keys(currentProjects).map(key => ({
+        id: currentProjects[key].id,
+        name: currentProjects[key].name
+      }));
+    }
+
   }
 }

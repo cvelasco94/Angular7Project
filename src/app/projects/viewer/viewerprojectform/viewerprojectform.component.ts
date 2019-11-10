@@ -6,10 +6,10 @@ import { Project } from '../../models/project.model';
   templateUrl: './viewerprojectform.component.html',
   styles: []
 })
-
 export class ViewerprojectformComponent implements OnInit {
 
   @Input() public project: Project;
+  @Input() public projectID: number;
 
   constructor() {}
 
