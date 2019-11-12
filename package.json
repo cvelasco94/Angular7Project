@@ -7,7 +7,7 @@
     "e2e": "ng e2e",
     "lint": "ng lint",
     "ng": "ng",
-    "http-server": "http-server ./dist/angular-board/ -c-1 -p4271 -a localhost -o",
+    "http-server": "http-server ./dist/angular-application/ -c-1 -p4271 -a localhost -o",
     "pub": "npm run build:pub && npm run push",
     "push": "git add -f * && git commit -m 'pub' && git push",
     "start:prod": "npm run build:prod && npm run http-server",
